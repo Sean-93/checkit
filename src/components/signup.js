@@ -24,7 +24,7 @@ export default function signup() {
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
           <br />
-          <Button variant="outline-primary" >Sumbit Signup</Button>{" "}
+          <Button variant="outline-primary" >Sumbit Signup </Button>{" "}
         </Form>
       </Container>
     </>
