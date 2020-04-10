@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Container, Button } from "react-bootstrap";
+import { Form, Container, Button, Row, Col } from "react-bootstrap";
 
 export default function login() {
   const styleform = {
@@ -9,6 +9,10 @@ export default function login() {
     borderRadius: "10px",
     backgroundColor: "rgba(254, 254, 254, 0.55)",
   };
+  const styleBtn= {
+    marginRight:"10px",
+    marginLeft:"15px",
+  }
   return (
     <>
       <Container style={styleform}>
@@ -24,7 +28,10 @@ export default function login() {
             <Form.Control type="password" placeholder="Password" />
           </Form.Group>
           <br />
-          <Button variant="outline-primary">Sumbit Login</Button>{" "}
+          <Row>
+            <Button variant="outline-primary" style={styleBtn}>Sumbit Login</Button>
+            <Button variant="outline-primary">Signup</Button>
+          </Row>
         </Form>
       </Container>
     </>
