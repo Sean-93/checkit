@@ -1,5 +1,4 @@
-//New code brought in from step 2 of the auth0 setup. 
-
+  
 import React from "react";
 import NavBar from "./components/NavBar";
 
@@ -23,10 +22,11 @@ function App() {
           <Route path="/" exact />
           < PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/external-api" component={ExternalApi} />
+
         </Switch>
-      </Router>
-    </div>
-  );
-}
+      </div>
+    </Router>
+  </>
+);
 
 export default App;

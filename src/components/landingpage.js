@@ -34,6 +34,7 @@ export default function landingpage() {
             Checkit
           </Navbar.Brand>
           <Nav.Link href="/post" style={stylelink}>
+
             <Example />
           </Nav.Link>
         </Container>
@@ -129,6 +130,7 @@ function Example() {
               <Form.Label>Comment:</Form.Label>
               <Form.Control
                 required
+
                 as="textarea"
                 rows="3"
                 placeholder="Enter a Comment"
