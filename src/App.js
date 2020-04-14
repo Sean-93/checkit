@@ -1,6 +1,6 @@
-  
+
 import React from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar";
 
 // New - import the React Router components, and the Profile page component
 import { Router, Route, Switch } from "react-router-dom";
@@ -24,9 +24,9 @@ function App() {
           <PrivateRoute path="/external-api" component={ExternalApi} />
 
         </Switch>
-      </div>
-    </Router>
-  </>
-);
+      </Router>
+    </div>
+  );
+}
 
 export default App;
