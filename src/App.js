@@ -1,20 +1,28 @@
+  
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
-import Login from "./components/login";
-import SignUp from "./components/signup";
-import LandingPage from "./components/landingpage";
-import Post from "./components/post";
+import NavBar from "./components/NavBar";
 
-const App = () => (
-  <>
-    <Router>
-      <div>
+// New - import the React Router components, and the Profile page component
+import { Router, Route, Switch } from "react-router-dom";
+import Profile from "./components/Profile";
+import history from "./utils/history";
+import PrivateRoute from "./components/PrivateRoute";
+import ExternalApi from "./views/ExternalApi";
+
+
+
+function App() {
+  return (
+    <div className="App">
+      <Router history={history}>
+        <header>
+          <NavBar />
+        </header>
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/landingpage" component={LandingPage} />
-          <Route exact path="/post" component={Post} />
+          <Route path="/" exact />
+          < PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/external-api" component={ExternalApi} />
+
         </Switch>
       </div>
     </Router>

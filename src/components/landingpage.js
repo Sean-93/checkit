@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./landingpage";
 import {
   Navbar,
@@ -8,11 +8,13 @@ import {
   Button,
   Row,
   Col,
+  Modal,
+  Form,
 } from "react-bootstrap";
 
 export default function landingpage() {
   const navbarr = {
-    marginBottom: '150px',
+    marginBottom: "150px",
     height: "80px",
     textShadow: "3px 4px 4px #0575e6",
     boxShadow: "10px 10px 10px 10px white",
@@ -32,7 +34,8 @@ export default function landingpage() {
             Checkit
           </Navbar.Brand>
           <Nav.Link href="/post" style={stylelink}>
-            PostIt
+
+            <Example />
           </Nav.Link>
         </Container>
         {/* Link to logout and post */}
@@ -93,6 +96,57 @@ export default function landingpage() {
           </Col>
         </Row>
       </Container>
+    </>
+  );
+}
+
+function Example() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const stylelink = {
+    fontSize: "20px",
+  };
+
+  return (
+    <>
+      <Nav.Link onClick={handleShow} style={stylelink}>
+        {" "}
+        PostIt
+      </Nav.Link>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Make a PostIt</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Link:</Form.Label>
+              <Form.Control type="text" placeholder="Enter a Link" />
+              <br />
+              <Form.Label>Comment:</Form.Label>
+              <Form.Control
+                required
+
+                as="textarea"
+                rows="3"
+                placeholder="Enter a Comment"
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="outline-primary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Post
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
