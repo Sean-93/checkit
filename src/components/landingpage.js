@@ -31,7 +31,7 @@ export default function landingpage() {
             Logout
           </Nav.Link>
           <Navbar.Brand href="#" style={{ fontSize: "60px", color: "#00f260" }}>
-            Checkit
+            CheckIt
           </Navbar.Brand>
           <Nav.Link>
             <Example />
@@ -124,10 +124,11 @@ function Example() {
           <Form>
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>Link:</Form.Label>
-              <Form.Control type="text" placeholder="Enter a Link"/>
+              <Form.Control type="text" placeholder="Enter a Link" />
               <br />
               <Form.Label>Comment:</Form.Label>
               <Form.Control
+                required
                 as="textarea"
                 rows="3"
                 placeholder="Enter a Comment"
