@@ -29,7 +29,7 @@ export default function login() {
           </Form.Group>
           <br />
           <Row>
-            <Button variant="outline-primary" style={styleBtn}>Sumbit Login</Button>
+            <Button variant="outline-primary" style={styleBtn} >Sumbit Login</Button>
             <Button variant="outline-primary">Signup</Button>
           </Row>
         </Form>
