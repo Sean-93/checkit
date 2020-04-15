@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const checkitController = require("../../controllers/checkitController");
 
+console.log("routes/api/checkit");
+
+
 // Matches with "/api/checkit"
 router.route("/")
   .get(checkitController.findAll)
@@ -10,7 +13,7 @@ router.route("/")
 router
   .route("/:id")
   .get(checkitController.findById)
-  .put(checkitController.update)
-  .delete(checkitController.remove);
+  // .put(checkitController.update)
+  // .delete(checkitController.remove);
 
 module.exports = router;

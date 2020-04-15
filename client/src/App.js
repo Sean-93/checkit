@@ -20,7 +20,8 @@ function App() {
         </header>
         <Switch>
           <Route path="/" exact />
-          < PrivateRoute path="/profile" component={Profile} />
+          {/* <Route exact path="/profile" component={Profile} /> */}
+          <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/external-api" component={ExternalApi} />
 
         </Switch>

@@ -3,12 +3,13 @@ const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 const express = require("express");
 const logger = require("morgan");
+const routes = require("./routes");
 const mongoose = require("mongoose");
 
 // Create a new Express app
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
 app.use(logger("dev"));
@@ -30,7 +31,7 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 // Set up Auth0 configuration
 const authConfig = {
   domain: "dev-po2p13yk.auth0.com",
-  audience: "t4To24B5gSKzLW620WokoJD1OaadPoBi"
+  audience: "https://postit-api-endpoin/"
 };
 
 // Define middleware that validates incoming bearer tokens
@@ -60,7 +61,6 @@ app.get("/api/external", checkJwt, (req, res) => {
 // app.get("/api/checkit", (req, res) => {
 //   console.log('get/find /api/checkit');
 //   db.Checkit.find({})
-//     //     .populate("exercises")
 //     .then(dbCheckit => {
 //       res.json(dbCheckit);
 //     })
@@ -72,6 +72,11 @@ app.get("/api/external", checkJwt, (req, res) => {
 
 
 // Start the app
+// If no API routes are hit, send the React app
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
 app.listen(3001, () => console.log('API listening on 3001'));
 
 // Start the server

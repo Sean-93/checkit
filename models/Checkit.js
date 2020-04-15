@@ -39,15 +39,9 @@ const CheckitSchema = new Schema({
         { type: Number },
     categories:
        [
-            {
-            useful: { type: Number },
-            },
-            {
-            interesting: { type: Number },
-            },
-            {
-            odd: { type: Number },           
-            }
+            { useful: { type: Number }  },
+            { interesting: { type: Number }  },
+            { unusual: { type: Number }  }
        ]
 });
 
