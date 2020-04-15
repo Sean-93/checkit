@@ -18,8 +18,8 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// Routes
-require("./routes/html-routes.js")(app);
+// Add routes
+app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checkitdb", { useNewUrlParser: true });
 
@@ -57,17 +57,17 @@ app.get("/api/external", checkJwt, (req, res) => {
 
 
 // wip *********
-app.get("/api/checkit", (req, res) => {
-  console.log('get/find /api/checkit');
-  db.Checkit.find({})
-    //     .populate("exercises")
-    .then(dbCheckit => {
-      res.json(dbCheckit);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
+// app.get("/api/checkit", (req, res) => {
+//   console.log('get/find /api/checkit');
+//   db.Checkit.find({})
+//     //     .populate("exercises")
+//     .then(dbCheckit => {
+//       res.json(dbCheckit);
+//     })
+//     .catch(err => {
+//       res.json(err);
+//     });
+// });
 // ***********
 
 
