@@ -1,4 +1,4 @@
-  
+
 import React from "react";
 import NavBar from "./components/Navbar";
 
@@ -20,13 +20,22 @@ function App() {
         </header>
         <Switch>
           <Route path="/" exact />
-          < PrivateRoute path="/profile" component={Profile} />
+          {/* <Route exact path="/profile" component={Profile} /> */}
+          <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/external-api" component={ExternalApi} />
 
         </Switch>
+<<<<<<< HEAD:src/App.js
     </Router>
       </div>
   
 );
   }
+=======
+      </Router>
+    </div>
+  );
+}
+
+>>>>>>> 05b59a172b4fffa9addc2a62016abc672a5e0a65:client/src/App.js
 export default App;
