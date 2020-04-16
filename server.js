@@ -1,10 +1,29 @@
-const express = require("express");
 const cors = require("cors");
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
+const express = require("express");
+const logger = require("morgan");
+const routes = require("./routes");
+const mongoose = require("mongoose");
 
 // Create a new Express app
 const app = express();
+
+const PORT = process.env.PORT || 3001;
+const db = require("./models");
+
+app.use(logger("dev"));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(express.static("public"));
+
+// Add routes
+app.use(routes);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checkitdb", { useNewUrlParser: true });
+
 
 // Accept cross-origin requests from the frontend app
 app.use(cors({ origin: 'http://localhost:3000' }));
@@ -12,7 +31,7 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 // Set up Auth0 configuration
 const authConfig = {
   domain: "dev-po2p13yk.auth0.com",
-  audience: "t4To24B5gSKzLW620WokoJD1OaadPoBi"
+  audience: "https://postit-api-endpoin/"
 };
 
 // Define middleware that validates incoming bearer tokens
@@ -37,5 +56,31 @@ app.get("/api/external", checkJwt, (req, res) => {
   });
 });
 
+
+// wip *********
+// app.get("/api/checkit", (req, res) => {
+//   console.log('get/find /api/checkit');
+//   db.Checkit.find({})
+//     .then(dbCheckit => {
+//       res.json(dbCheckit);
+//     })
+//     .catch(err => {
+//       res.json(err);
+//     });
+// });
+// ***********
+
+
 // Start the app
+// If no API routes are hit, send the React app
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
 app.listen(3001, () => console.log('API listening on 3001'));
+
+// Start the server
+// app.listen(PORT, () => {
+//   console.log(`App running on port ${PORT}!`);
+// });
+

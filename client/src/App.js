@@ -1,6 +1,6 @@
+
 import React from "react";
 import NavBar from "./components/Navbar";
-import "./App.css";
 
 // New - import the React Router components, and the Profile page component
 import { Router, Route, Switch } from "react-router-dom";
@@ -11,20 +11,20 @@ import ExternalApi from "./views/ExternalApi";
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <Router history={history}>
-          <header>
-            <NavBar />
-          </header>
-          <Switch>
-            <Route path="/" exact />
-            <PrivateRoute path="/profile" component={Profile} />
-            <PrivateRoute path="/external-api" component={ExternalApi} />
-          </Switch>
-        </Router>
-      </div>
-    </>
+    <div className="App">
+      <Router history={history}>
+        <header>
+          <NavBar />
+        </header>
+        <Switch>
+          <Route path="/" exact />
+          {/* <Route exact path="/profile" component={Profile} /> */}
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/external-api" component={ExternalApi} />
+
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
