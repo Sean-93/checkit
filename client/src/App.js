@@ -25,17 +25,9 @@ function App() {
           <PrivateRoute path="/external-api" component={ExternalApi} />
 
         </Switch>
-<<<<<<< HEAD:src/App.js
-    </Router>
-      </div>
-  
-);
-  }
-=======
       </Router>
     </div>
   );
 }
 
->>>>>>> 05b59a172b4fffa9addc2a62016abc672a5e0a65:client/src/App.js
 export default App;
