@@ -23,6 +23,7 @@
 
 
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 //import DeleteBtn from "../components/DeleteBtn";
 //import Jumbotron from "../components/Jumbotron";
 import Wrapper from "../components/Wrapper";
@@ -57,44 +58,72 @@ function Checkits() {
 
   
 
-  const incrementCount = (key, catType) => {
+  const incrementCount = async (key, catType) => {
     console.log("key=", key, " type=", catType);
-  //  console.log("click");
-  // Read record using mongo key
-  // Increment corresponding category [useful, interesting, unusual]
-  // and increment total votes.
-  // Update record read previously
-  API.getCheckit(key, catType)
-  .then(res => updateVotes(res.data, catType)
-  //console.log("use=",res.data.useful, " tot=", res.data.totalVotes)
-    //loadCheckits()
-    //setCheckits(res.data)
-  )
+
+   const filtered =  await checkits.filter(checkit => {
+        if (checkit._id === key) return checkit
+       
+    })
+
+   const checkItToUpdate = filtered[0];
+    console.log(checkItToUpdate);
+   switch (catType) {
+    case "use":
+      checkItToUpdate.useful += 1; 
+      checkItToUpdate.totalVotes += 1; 
+      break;
+    case "int":
+      checkItToUpdate.interesting += 1; 
+      checkItToUpdate.totalVotes += 1; 
+      break;
+    case "unu":
+      checkItToUpdate.unusual += 1; 
+      checkItToUpdate.totalVotes += 1; 
+      break;
+    default:
+  }
+
+  axios.put(`/api/checkit/${key}`, {
+   totalVotes: checkItToUpdate.totalVotes,
+   useful: checkItToUpdate.useful,
+   interesting: checkItToUpdate.interesting,
+   unusual: checkItToUpdate.unusual
+  })
+  .then(res => {
+    console.log(res);
+    loadCheckits();
+  })
   .catch(err => console.log(err));
-  };
+ 
+};
 
-  function updateVotes(resData, catType) {
-    resData.totalVotes += 1;
-    console.log(resData._id, catType, resData.totalVotes);
+
+  
+  
+
+  // function updateVotes(resData, catType) {
+  //   resData.totalVotes += 1;
+  //   console.log(resData._id, catType, resData.totalVotes);
     
-    switch (catType) {
-        case "use":
-          resData.useful += 1; 
-          break;
-        case "int":
-          resData.interesting += 1; 
-          break;
-        case "unu":
-          resData.unusual += 1; 
-          break;
-        default:
-      }
+  //   switch (catType) {
+  //       case "use":
+  //         resData.useful += 1; 
+  //         break;
+  //       case "int":
+  //         resData.interesting += 1; 
+  //         break;
+  //       case "unu":
+  //         resData.unusual += 1; 
+  //         break;
+  //       default:
+  //     }
 
-    API.updateCheckit(resData._id, resData)
-     .then(res => loadCheckits()
-     )
-     .catch(err => console.log(err));
-  };
+  //   API.updateCheckit(resData._id, resData)
+  //    .then(res => loadCheckits()
+  //    )
+  //    .catch(err => console.log(err));
+  // };
 
 
   return (
