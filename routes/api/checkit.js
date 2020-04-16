@@ -10,10 +10,10 @@ router.route("/")
   .post(checkitController.create);
 
 // Matches with "/api/checkit/:id"
-router
-  .route("/:id")
+router.route("/:id")
   .get(checkitController.findById)
-  // .put(checkitController.update)
-  // .delete(checkitController.remove);
+  .put(checkitController.update)
+// .delete(checkitController.remove);
+  
 
 module.exports = router;

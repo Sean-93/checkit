@@ -37,16 +37,22 @@ const CheckitSchema = new Schema({
         },
     totalVotes:
         { type: Number },
-    categories:
-       [
-            { useful: { type: Number }  },
-            { interesting: { type: Number }  },
-            { unusual: { type: Number }  }
-       ]
+    useful:
+        { type: Number },
+    interesting:
+         { type: Number },
+    unusual:
+         { type: Number }
+
 });
 
 const Checkit = mongoose.model("Checkit", CheckitSchema);
 
 module.exports = Checkit;
 
-
+// categories:
+// [
+//      { useful: { type: Number }  },
+//      { interesting: { type: Number }  },
+//      { unusual: { type: Number }  }
+// ]
