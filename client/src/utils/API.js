@@ -10,12 +10,16 @@ export default {
   getCheckit: function(id) {
     return axios.get("/api/checkit/" + id);
   },
-  // Deletes the post with the given id
-//   deleteBook: function(id) {
-//     return axios.delete("/api/books/" + id);
-//   },
+    // Updates the Checkit with the given id
+  updateCheckit: function(id, record) {
+      return axios.put("/api/checkit/" + id);
+  },
   // Saves a Checkit post to the database
   saveCheckit: function(checkitData) {
     return axios.post("/api/checkit/create", checkitData);
   }
+    // Deletes the post with the given id
+//   deleteBook: function(id) {
+//     return axios.delete("/api/books/" + id);
+//   }
 };
