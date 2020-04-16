@@ -24,7 +24,6 @@ app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checkitdb", { useNewUrlParser: true });
 
-
 // Accept cross-origin requests from the frontend app
 app.use(cors({ origin: 'http://localhost:3000' }));
 
@@ -56,7 +55,6 @@ app.get("/api/external", checkJwt, (req, res) => {
   });
 });
 
-
 // wip *********
 // app.get("/api/checkit", (req, res) => {
 //   console.log('get/find /api/checkit');
@@ -70,7 +68,6 @@ app.get("/api/external", checkJwt, (req, res) => {
 // });
 // ***********
 
-
 // Start the app
 // If no API routes are hit, send the React app
 app.use(function(req, res) {
@@ -83,4 +80,3 @@ app.listen(3001, () => console.log('API listening on 3001'));
 // app.listen(PORT, () => {
 //   console.log(`App running on port ${PORT}!`);
 // });
-
