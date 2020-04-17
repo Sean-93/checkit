@@ -9,13 +9,15 @@ import Card from "react-bootstrap/Card";
 
 function CheckitCard(props) {
   console.log(props);
+  var date = props.created,
+  Fdate = (new Date(date)).toLocaleString();
   return (
     <Card style={{ width: "20rem" }}>
       {/* <Card.Img variant="top" src="http://placehold.it/250x150" /> */}
       <Card.Body>
         {/* <Card.Title>What to call it?</Card.Title> */}
         <Card.Text>
-          <p>{props.created}</p>
+          <p>{Fdate}</p>
           <p>
             <strong>Submitted by:</strong> {props.username}
           </p>
