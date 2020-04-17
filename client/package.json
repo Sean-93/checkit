@@ -19,10 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "seed": "node scripts/seedDB.js",
-    "eject": "react-scripts eject",
-    "dev": "npm-run-all --parallel start server",
-    "server": "node server.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
