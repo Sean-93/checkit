@@ -19,7 +19,7 @@ function CheckitCard(props) {
         <Card.Text>
           <p>{Fdate}</p>
           <p>
-            <strong>Submitted by:</strong> {props.username}
+            <strong>Submitted by:</strong> {props.user.nickname}
           </p>
           <p>
             <strong>Comments:</strong> {props.comments}
