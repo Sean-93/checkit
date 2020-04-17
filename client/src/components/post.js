@@ -20,8 +20,8 @@ function Post(props) {
   function handleFormSubmit(event) {
     if (formObject.url && formObject.comment) {
       API.saveCheckit({
-        username: props.user.name,
-        email: props.user.email,
+        // username: props.user.name,
+        // email: props.user.email,
         url: formObject.url,
         comment: formObject.comment,
       })
