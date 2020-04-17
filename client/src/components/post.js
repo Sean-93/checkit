@@ -18,7 +18,6 @@ function Post() {
   // When the form is submitted, use the API.saveBook method to save the book data
   // Then reload books from the database
   function handleFormSubmit(event) {
-    event.preventDefault();
     if (formObject.url && formObject.comment) {
       API.saveCheckit({
         url: formObject.url,
@@ -52,6 +51,7 @@ function Post() {
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>Link:</Form.Label>
               <Form.Control
+                required
                 onChange={handleInputChange}
                 value={formObject.url}
                 name="url"
@@ -76,7 +76,13 @@ function Post() {
           <Button variant="outline-primary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleFormSubmit();
+              handleClose();
+            }}
+          >
             Post
           </Button>
         </Modal.Footer>
