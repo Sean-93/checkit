@@ -4,7 +4,7 @@ import { Nav, Button, Modal, Form } from "react-bootstrap";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 
-function Post() {
+function Post(props) {
   const [show, setShow] = useState(false);
   const [formObject, setFormObject] = useState({});
   const [redirect, setRedirect] = useState("");
@@ -20,6 +20,8 @@ function Post() {
   function handleFormSubmit(event) {
     if (formObject.url && formObject.comment) {
       API.saveCheckit({
+        username: props.user.name,
+        email: props.user.email,
         url: formObject.url,
         comment: formObject.comment,
       })
