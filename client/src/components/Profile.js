@@ -27,6 +27,7 @@ import axios from "axios";
 //import DeleteBtn from "../components/DeleteBtn";
 //import Jumbotron from "../components/Jumbotron";
 import Wrapper from "../components/Wrapper";
+//import CardDeck from 'react-bootstrap/CardDeck';
 import CheckitCard from "../components/CheckitCard";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
@@ -99,52 +100,27 @@ function Checkits() {
 };
 
 
-  
-  
-
-  // function updateVotes(resData, catType) {
-  //   resData.totalVotes += 1;
-  //   console.log(resData._id, catType, resData.totalVotes);
-    
-  //   switch (catType) {
-  //       case "use":
-  //         resData.useful += 1; 
-  //         break;
-  //       case "int":
-  //         resData.interesting += 1; 
-  //         break;
-  //       case "unu":
-  //         resData.unusual += 1; 
-  //         break;
-  //       default:
-  //     }
-
-  //   API.updateCheckit(resData._id, resData)
-  //    .then(res => loadCheckits()
-  //    )
-  //    .catch(err => console.log(err));
-  // };
-
-
   return (
     <Container fluid>
       {checkits.length ? (
         <Wrapper>
+          {/* <CardDeck> */}
           {checkits.map(checkit => (
             <CheckitCard key={checkit._id}
-              id={checkit._id}
-              incrementCount={incrementCount}
-              username={checkit.username}
-              created={checkit.created}
-              comments={checkit.comments}
-              url={checkit.url}
-              useful={checkit.useful}
-              interesting={checkit.interesting}
-              unusual={checkit.unusual}
+            id={checkit._id}
+            incrementCount={incrementCount}
+            username={checkit.username}
+            created={checkit.created}
+            comments={checkit.comments}
+            url={checkit.url}
+            useful={checkit.useful}
+            interesting={checkit.interesting}
+            unusual={checkit.unusual}
             >
               {/* <DeleteBtn onClick={() => deleteBook(book._id)} /> */}
             </CheckitCard>
           ))}
+          {/* </CardDeck> */}
         </Wrapper>
       ) : (
           <h3>No Results to Display</h3>
