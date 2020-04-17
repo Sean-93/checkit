@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { Navbar, Container, Row, Col, Button } from "react-bootstrap";
 import Post from "./post";
 
-const Header = () => {
+const Header = (props) => {
+  console.log("props are here:", props);
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const navbarr = {
@@ -78,8 +79,7 @@ const Header = () => {
         </>
       )}
       <Navbar style={navbarr} expand="lg" variant="light" bg="white">
-        <Container>
-          <>
+          <Container>
             {isAuthenticated && (
               <>
                 <Link onClick={() => logout()} style={stylelink}>
@@ -100,8 +100,7 @@ const Header = () => {
                 <Link to="/external-api" />
               </>
             )}
-          </>
-        </Container>
+          </Container>
       </Navbar>
     </>
   );
