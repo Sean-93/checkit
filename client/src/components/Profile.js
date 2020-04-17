@@ -5,10 +5,9 @@ import CheckitCard from "../components/CheckitCard";
 import API from "../utils/API";
 import { Container } from "../components/Grid";
 
-function Checkits(props) {
+function Checkits() {
   // Setting our component's initial state
   const [checkits, setCheckits] = useState([]);
-
   // Load all Checkit posts and store them with setCheckits
   useEffect(() => {
     loadCheckits();

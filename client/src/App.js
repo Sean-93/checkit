@@ -9,18 +9,14 @@ import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import ExternalApi from "./views/ExternalApi";
 import "./App.css"
-import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
 
-  const { user } = useAuth0();
-
-  console.log("app props user", user);
   return (
     <div className="App">
       <Router history={history}>
         <header>
-          <NavBar user={user}/>
+          <NavBar />
         </header>
         <Switch>
           <PrivateRoute path={["/", "/profile"]} component={Profile} />

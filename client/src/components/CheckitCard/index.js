@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 function CheckitCard(props) {
-  console.log(props);
+
   var date = props.created,
   Fdate = (new Date(date)).toLocaleString();
   return (
@@ -19,7 +19,7 @@ function CheckitCard(props) {
         <Card.Text>
           <p>{Fdate}</p>
           <p>
-            <strong>Submitted by:</strong> {props.user.nickname}
+            <strong>Submitted by:</strong> {props.username}
           </p>
           <p>
             <strong>Comments:</strong> {props.comments}
@@ -68,49 +68,3 @@ function CheckitCard(props) {
 }
 
 export default CheckitCard;
-
-{
-  /* <span onClick={() => props.removeFriend(props.id)} className="remove">
-𝘅
-</span> */
-}
-
-// <div className="card">
-//       {/* <div className="img-container">
-//         <img alt={props.name} src={props.image} />
-//       </div> */}
-//       <div className="content">
-//         <ul>
-//           <li>
-//             <strong>Submitted by:</strong> {props.username}
-//           </li>
-//           <li>
-//             <strong>Comments:</strong> {props.comments}
-//           </li>
-//           <li>
-//             {/* <strong>Url:</strong> {props.url} */}
-//             <a href={props.url} target="_blank" class="btn btn-outline-dark">Try It</a>
-//           </li>
-//           <li>
-//             <strong>Useful:</strong> {props.useful}
-//           </li>
-//           <li>
-//             <strong>Interesting:</strong> {props.interesting}
-//           </li>
-//           <li>
-//             <strong>Unusual:</strong> {props.unusual}
-//           </li>
-//         </ul>
-//       </div>
-
-// {/* <ul>
-//   <li>
-//     <strong>Useful:</strong> {props.useful}
-//   </li>
-//   <li>
-//     <strong>Interesting:</strong> {props.interesting}
-//   </li>
-//   <li>
-//     <strong>Unusual:</strong> {props.unusual}
-//   </li>
-// </ul> */}

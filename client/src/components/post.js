@@ -3,8 +3,13 @@ import "./landingpage";
 import { Nav, Button, Modal, Form } from "react-bootstrap";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
+import { useAuth0 } from "../react-auth0-spa";
 
-function Post(props) {
+function Post() {
+
+  const { user } = useAuth0();
+  console.log("post.js", user);
+
   const [show, setShow] = useState(false);
   const [formObject, setFormObject] = useState({});
   const [redirect, setRedirect] = useState("");
@@ -19,9 +24,9 @@ function Post(props) {
   // Then reload books from the database
   function handleFormSubmit(event) {
     if (formObject.url && formObject.comment) {
+      console.log("user", user.nickname)
       API.saveCheckit({
-        // username: props.user.name,
-        // email: props.user.email,
+        username: user.nickname,
         url: formObject.url,
         comment: formObject.comment,
       })
