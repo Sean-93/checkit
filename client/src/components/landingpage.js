@@ -31,10 +31,9 @@ export default function landingpage() {
             Logout
           </Nav.Link>
           <Navbar.Brand href="#" style={{ fontSize: "60px", color: "#00f260" }}>
-            Checkit
+            CheckIt
           </Navbar.Brand>
           <Nav.Link href="/post" style={stylelink}>
-
             <Example />
           </Nav.Link>
         </Container>
@@ -100,7 +99,7 @@ export default function landingpage() {
   );
 }
 
-function Example() {
+function Example(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -125,12 +124,18 @@ function Example() {
           <Form>
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>Link:</Form.Label>
-              <Form.Control type="text" placeholder="Enter a Link" />
+              <Form.Control
+                onChange={props.handleInputChange}
+                value={props.value}
+                name="search"
+                type="text"
+                id="search"
+                placeholder="Enter a Link"
+              />
               <br />
               <Form.Label>Comment:</Form.Label>
               <Form.Control
                 required
-
                 as="textarea"
                 rows="3"
                 placeholder="Enter a Comment"
@@ -142,7 +147,11 @@ function Example() {
           <Button variant="outline-primary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+            variant="primary"
+            onClick={props.handleFormSubmit}
+            onClick={handleClose}
+          >
             Post
           </Button>
         </Modal.Footer>
@@ -150,3 +159,4 @@ function Example() {
     </>
   );
 }
+
