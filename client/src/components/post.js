@@ -1,77 +1,88 @@
-import React, { Component } from "react";
-import Container from "./Container";
-import Row from "./Row";
-import Col from "./Col";
-import Card from "./Card";
-import SearchForm from "./SearchForm";
-import MovieDetail from "./MovieDetail";
+import React, { useState } from "react";
+import "./landingpage";
+import { Nav, Button, Modal, Form } from "react-bootstrap";
 import API from "../utils/API";
+import { Redirect } from "react-router-dom";
 
-class Post extends Component {
-  state = {
-    result: {},
-    search: ""
-  };
+function Post() {
+  const [show, setShow] = useState(false);
+  const [formObject, setFormObject] = useState({});
+  const [redirect, setRedirect] = useState("");
 
-  // When this component mounts, search for
-  componentDidMount() {
-    this.searchURL("reddit.com");
+  // Handles updating component state when the user types into the input field
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
   }
 
-  searchURL = query => {
-    API.search(query)
-      .then(res => this.setState({ result: res.data }))
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const value = event.target.value;
-    const name = event.target.name;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  // When the form is submitted, search the OMDB API for the value of `this.state.search`
-  handleFormSubmit = event => {
+  // When the form is submitted, use the API.saveBook method to save the book data
+  // Then reload books from the database
+  function handleFormSubmit(event) {
     event.preventDefault();
-    this.searchMovies(this.state.search);
+    if (formObject.url && formObject.comment) {
+      API.saveCheckit({
+        url: formObject.url,
+        comment: formObject.comment,
+      })
+        .then((res) => console.log("result"))
+        .catch((err) => console.log(err));
+    }
+  }
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const stylelink = {
+    fontSize: "20px",
   };
 
-  render() {
-    return (
-      <Container>
-        <Row>
-          <Col size="md-8">
-            <Card
-              heading={this.state.result.Title || "Search for a Movie to Begin"}
-            >
-              {this.state.result.Title ? (
-                <MovieDetail
-                  title={this.state.result.Title}
-                  src={this.state.result.Poster}
-                  director={this.state.result.Director}
-                  genre={this.state.result.Genre}
-                  released={this.state.result.Released}
-                />
-              ) : (
-                <h3>No Results to Display</h3>
-              )}
-            </Card>
-          </Col>
-          <Col size="md-4">
-            <Card heading="Search">
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
+  return (
+    <>
+      <Nav.Link onClick={handleShow} style={stylelink}>
+        {" "}
+        PostIt
+      </Nav.Link>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Make a PostIt</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Link:</Form.Label>
+              <Form.Control
+                onChange={handleInputChange}
+                value={formObject.url}
+                name="url"
+                type="text"
+                placeholder="Enter a Link"
               />
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
+              <br />
+              <Form.Label>Comment:</Form.Label>
+              <Form.Control
+                required
+                onChange={handleInputChange}
+                value={formObject.comment}
+                as="textarea"
+                name="comment"
+                rows="3"
+                placeholder="Enter a Comment"
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="outline-primary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleFormSubmit}>
+            Post
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 }
 
 export default Post;
