@@ -18,8 +18,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log(req.body);
     db.Checkit
-      .create(req.body)
+      .create({url: req.body.url, comments: [req.body.comment]})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
