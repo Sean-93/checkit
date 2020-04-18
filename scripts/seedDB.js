@@ -37,19 +37,7 @@ let checkitSeed = [
     interesting: 1,
     unusual: 0
   },
-  {
-    username: "user01",
-    email: "future.user@gmail.net",
-    created: new Date().setDate(new Date().getDate()-2),
-    updated: new Date().setDate(new Date().getDate()-2),
-    comments: "This one is a little crazy!",
-    url: "https://wet-field-70247.herokuapp.com/",
-    totalVotes: 3,
-    useful: 0,
-    interesting: 1,
-    unusual: 2
-  },
-  {
+    {
     username: "user03",
     email: "future.user@gmail.net",
     created: new Date().setDate(new Date().getDate()-2),
@@ -66,8 +54,8 @@ let checkitSeed = [
     email: "future.user@gmail.net",
     created: new Date().setDate(new Date().getDate()-3),
     updated: new Date().setDate(new Date().getDate()-3),
-    comments: "This one is quite useful.",
-    url: "https://abcdef.github.io/very-useful/",
+    comments: "Lots of useful info at this one.",
+    url: "https://www.w3schools.com/",
     totalVotes: 3,
     useful: 3,
     interesting: 0,
@@ -78,7 +66,7 @@ let checkitSeed = [
     email: "future.user@gmail.net",
     created: new Date().setDate(new Date().getDate()-4),
     updated: new Date().setDate(new Date().getDate()-4),
-    comments: "This one is to test the size of the comments area. It allows for a fair amount of text to be entered. So some may be inclinned to ramble on and on about how bloody wonderful this site is!!.",
+    comments: "This one is to test the size of the comments area. It allows for a fair amount of text to be entered. So some may be inclinned to ramble on and on about how bloody wonderful this site is!!",
     url: "https://stardate.org/radio/calendars/",
     totalVotes: 0,
     useful: 0,
