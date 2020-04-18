@@ -4,7 +4,7 @@ import { Nav, Button, Modal, Form } from "react-bootstrap";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 
-function Post() {
+function Post(props) {
   const [show, setShow] = useState(false);
   const [formObject, setFormObject] = useState({});
   const [redirect, setRedirect] = useState("");
@@ -18,9 +18,10 @@ function Post() {
   // When the form is submitted, use the API.saveBook method to save the book data
   // Then reload books from the database
   function handleFormSubmit(event) {
-    event.preventDefault();
     if (formObject.url && formObject.comment) {
       API.saveCheckit({
+        // username: props.user.name,
+        // email: props.user.email,
         url: formObject.url,
         comment: formObject.comment,
       })
@@ -52,6 +53,7 @@ function Post() {
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label>Link:</Form.Label>
               <Form.Control
+                required
                 onChange={handleInputChange}
                 value={formObject.url}
                 name="url"
@@ -76,7 +78,13 @@ function Post() {
           <Button variant="outline-primary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleFormSubmit();
+              handleClose();
+            }}
+          >
             Post
           </Button>
         </Modal.Footer>
