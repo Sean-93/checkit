@@ -4,11 +4,8 @@
 
 * [Summary](#What-is-Checkit?)
 * [Development](#How-is-Checkit-being-developed?)
-* [UI and UX](#Checkit's-User-Interface:)
 * [Application Link](#Deployed-Application)
 * [Contributors](#Contributors)
-* [Web Authentication](#Authentication:)
-
 
 ### What is CheckIt?
 #### CheckIt is an online bulletin board application where users can post noteworthy websites that they have found, and other users can rate the post with different metrics.  
