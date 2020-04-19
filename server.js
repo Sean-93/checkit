@@ -79,11 +79,7 @@ app.use(function (req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-<<<<<<< HEAD
-app.listen(3001, () => console.log("API listening on 3001"));
-=======
 app.listen(PORT, () => console.log('API listening on 3001'));
->>>>>>> 988882aeea15402341b2dabb1b02f8c6ee0b6d21
 
 // Start the server
 // app.listen(PORT, () => {
