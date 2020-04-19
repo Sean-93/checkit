@@ -20,8 +20,8 @@ const CheckitSchema = new Schema({
     default: Date.now,
   },
   comments: {
-    type: String,
-    trim: true,
+      type: String,
+      trim: true,
   },
   url: {
     type: String,

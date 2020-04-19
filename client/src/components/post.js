@@ -5,31 +5,32 @@ import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 import { useAuth0 } from "../react-auth0-spa";
 
+
 function Post() {
-
-  const { user } = useAuth0();
-  console.log("post.js", user);
-
   const [show, setShow] = useState(false);
   const [formObject, setFormObject] = useState({});
   const [redirect, setRedirect] = useState("");
-
+  
+  const { user } = useAuth0();
+  //user={user}
+  
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
   }
-
+  
   // When the form is submitted, use the API.saveBook method to save the book data
   // Then reload books from the database
   function handleFormSubmit(event) {
+    console.log("Post handleFormSubmit user", user);
     if (formObject.url && formObject.comment) {
       console.log("user", user.nickname)
       API.saveCheckit({
-        username: user.nickname,
+        username: user.name,
         email: user.email,
         url: formObject.url,
-        comment: formObject.comment,
+        comments: formObject.comment,
       })
         .then((res) => console.log("hello"))
         .catch((err) => console.log(err));

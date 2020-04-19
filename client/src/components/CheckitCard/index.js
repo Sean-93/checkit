@@ -12,7 +12,7 @@ function CheckitCard(props) {
   var date = props.created,
   Fdate = (new Date(date)).toLocaleString();
   return (
-    <Card style={{ width: "20rem" }}>
+    <Card>  
       {/* <Card.Img variant="top" src="http://placehold.it/250x150" /> */}
       <Card.Body>
         {/* <Card.Title>What to call it?</Card.Title> */}
@@ -68,3 +68,7 @@ function CheckitCard(props) {
 }
 
 export default CheckitCard;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53ea6f2364cb6356c4af4aeb4991bd2e2b601e46

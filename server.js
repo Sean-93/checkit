@@ -25,7 +25,11 @@ app.use(express.static("public"));
 // Add routes
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checkitdb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checkitdb", { 
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true  
+});
 
 
 // Accept cross-origin requests from the frontend app
@@ -80,7 +84,7 @@ app.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-app.listen(PORT, () => console.log('API listening on 3001'));
+app.listen(PORT, () => console.log(`API listening on port ${PORT}!`));
 
 // Start the server
 // app.listen(PORT, () => {
