@@ -12,7 +12,6 @@ function Post() {
   const [redirect, setRedirect] = useState("");
   
   const { user } = useAuth0();
-  //user={user}
   
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -25,13 +24,14 @@ function Post() {
   function handleFormSubmit(event) {
     console.log("Post handleFormSubmit user", user);
     if (formObject.url && formObject.comment) {
+      console.log("user", user.nickname)
       API.saveCheckit({
         username: user.name,
         email: user.email,
         url: formObject.url,
         comments: formObject.comment,
       })
-        .then((res) => console.log("result"))
+        .then((res) => console.log("hello"))
         .catch((err) => console.log(err));
     }
   }
