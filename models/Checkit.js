@@ -19,12 +19,10 @@ const CheckitSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  comments: [
-    {
+  comments: {
       type: String,
       trim: true,
-    },
-  ],
+  },
   url: {
     type: String,
     trim: true,
