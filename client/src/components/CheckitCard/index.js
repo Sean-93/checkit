@@ -8,11 +8,10 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 function CheckitCard(props) {
-
   var date = props.created,
-  Fdate = (new Date(date)).toLocaleString();
+    Fdate = new Date(date).toLocaleString();
   return (
-    <Card>  
+    <Card>
       {/* <Card.Img variant="top" src="http://placehold.it/250x150" /> */}
       <Card.Body>
         {/* <Card.Title>What to call it?</Card.Title> */}
@@ -38,8 +37,7 @@ function CheckitCard(props) {
               onClick={() => props.incrementCount(props.id, "use")}
             >
               Useful
-            </Button>{" "}
-            <span>{props.useful}</span>
+            </Button>
           </Col>
           <Col>
             <Button
@@ -48,8 +46,7 @@ function CheckitCard(props) {
               onClick={() => props.incrementCount(props.id, "int")}
             >
               Interesting
-            </Button>{" "}
-            <span>{props.interesting}</span>
+            </Button>
           </Col>
           <Col>
             <Button
@@ -58,17 +55,23 @@ function CheckitCard(props) {
               onClick={() => props.incrementCount(props.id, "unu")}
             >
               Unusual
-            </Button>{" "}
-            <span>{props.unusual}</span>
-          </Col>{" "}
+            </Button>
+          </Col>
         </Row>
-      </Card.Footer>{" "}
+        <Row>
+          <Col>
+            <span>{props.useful}</span>
+          </Col>
+          <Col>
+            <span>{props.interesting}</span>
+          </Col>
+          <Col>
+            <span>{props.unusual}</span>
+          </Col>
+        </Row>
+      </Card.Footer>
     </Card>
   );
 }
 
 export default CheckitCard;
-<<<<<<< HEAD
-=======
-
->>>>>>> 53ea6f2364cb6356c4af4aeb4991bd2e2b601e46

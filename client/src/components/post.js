@@ -12,7 +12,6 @@ function Post() {
   const [redirect, setRedirect] = useState("");
   
   const { user } = useAuth0();
-  //user={user}
   
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
