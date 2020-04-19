@@ -8,12 +8,12 @@ import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import ExternalApi from "./views/ExternalApi";
-import "./App.css"
+import "./App.css";
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="App"> 
       <Router history={history}>
         <header>
           <NavBar />
