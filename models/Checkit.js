@@ -36,10 +36,3 @@ const CheckitSchema = new Schema({
 const Checkit = mongoose.model("Checkit", CheckitSchema);
 
 module.exports = Checkit;
-
-// categories:
-// [
-//      { useful: { type: Number }  },
-//      { interesting: { type: Number }  },
-//      { unusual: { type: Number }  }
-// ]
