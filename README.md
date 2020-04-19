@@ -4,10 +4,10 @@
 
 * [Summary](#What-is-Checkit?)
 * [Development](#How-is-Checkit-being-developed?)
-* [UI/UX](#Checkit's-User-Interface: )
+* [UI and UX](#Checkit's-User-Interface:)
 * [Application Link](#Deployed-Application)
 * [Contributors](#Contributors)
-* [Web Authentication](#Authentication: )
+* [Web Authentication](#Authentication:)
 
 
 ### What is CheckIt?
