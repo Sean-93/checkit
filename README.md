@@ -1,7 +1,7 @@
 # CheckIt
 
 ### Table of Contents:
-
+   
 * [Summary](#What-is-Checkit?)
 * [Development](#How-is-Checkit-being-developed?)
 * [UI/UX](#Checkit's-User-Interface:)
