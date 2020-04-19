@@ -1,13 +1,23 @@
-# Checkit
+# CheckIt
 
-### What is Checkit?
-#### Checkit is an online bulletin board application where users can post noteworthy websites that they have found, and other users can rate the post with different metrics.  
+### Table of Contents:
 
-### How is Checkit being developed?
-#### Checkit is a full-stack MERN application (Mongo, Express, React, Node) which also uses JWT authentication via auth0.com.  Checkit is currently under development.
+* [Summary](#What-is-Checkit?)
+* [Development](#How-is-Checkit-being-developed?)
+* [UI/UX](#Checkit's-User-Interface:)
+* [Application Link](#Deployed-Application)
+* [Contributors](#Contributors)
+* [Web Authentication](#Authentication:)
 
-### Checkit's User Interface:
-#### -Once the user goes to Checkit, they will be sent to a "login" page to login with their account.  If the user doesn't have an account, they will have to navigate to the "signup" page.
+
+### What is CheckIt?
+#### CheckIt is an online bulletin board application where users can post noteworthy websites that they have found, and other users can rate the post with different metrics.  
+
+### How is CheckIt being developed?
+#### CheckIt is a full-stack MERN application (Mongo, Express, React, Node) which also uses JWT authentication via auth0.com.  CheckIt is currently under development.
+
+### CheckIt's User Interface:
+#### -Once the user goes to CheckIt, they will be sent to a "login" page to login with their account.  If the user doesn't have an account, they will have to navigate to the "signup" page.
 ![](./readme-imgs/1-front-page.png)
 #### -When user is on the "signup" page, they will create a username and password to login with.  Once created, the user can go back to the "login" page and login with their new credentials.
 ![](./readme-imgs/2-signup-page.png)
@@ -22,3 +32,5 @@
 #### Michael Plichta: https://github.com/mekaleka
 #### Trevor Dorn: https://github.com/dorntrevor7
 #### Sean Rooney: https://github.com/Sean-93
+### Authentication:
+#### CheckIt requires users to be logged in to use the application; here is a link to the website for Auth0, which is the user authentication software used by CheckIt: https://auth0.com/
