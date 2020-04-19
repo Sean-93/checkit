@@ -27,10 +27,11 @@ function Post() {
       console.log("user", user.nickname)
       API.saveCheckit({
         username: user.nickname,
+        email: user.email,
         url: formObject.url,
         comment: formObject.comment,
       })
-        .then((res) => console.log("result"))
+        .then((res) => console.log("hello"))
         .catch((err) => console.log(err));
     }
   }

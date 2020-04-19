@@ -19,12 +19,10 @@ const CheckitSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  comments: [
-    {
-      type: String,
-      trim: true,
-    },
-  ],
+  comments: {
+    type: String,
+    trim: true,
+  },
   url: {
     type: String,
     trim: true,
@@ -38,10 +36,3 @@ const CheckitSchema = new Schema({
 const Checkit = mongoose.model("Checkit", CheckitSchema);
 
 module.exports = Checkit;
-
-// categories:
-// [
-//      { useful: { type: Number }  },
-//      { interesting: { type: Number }  },
-//      { unusual: { type: Number }  }
-// ]
