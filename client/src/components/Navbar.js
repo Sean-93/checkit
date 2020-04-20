@@ -78,7 +78,7 @@ const Header = (props) => {
           </Container>
         </>
       )}
-      <Navbar style={navbarr} expand="lg" variant="light" bg="white">
+        <Navbar style={navbarr} expand="lg" variant="light" bg="white">
           <Container>
             {isAuthenticated && (
               <>
@@ -100,7 +100,7 @@ const Header = (props) => {
               </>
             )}
           </Container>
-      </Navbar>
+        </Navbar>
     </>
   );
 };
