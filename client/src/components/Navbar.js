@@ -97,7 +97,6 @@ const Header = (props) => {
                   CheckIt
                 </Link>
                 <Link component={Post}>PostIt</Link>
-                <Link to="/external-api" />
               </>
             )}
           </Container>
